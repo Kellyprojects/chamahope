@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chama - Global Community Mutual Support Foundation</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <style>
+        body {
+            background-color: #0b192c;
+            color: #f8fafc;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        /* Top Navigation Header with Hamburger Support */
+        header.site-header {
+            background: #ffffff;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+        .brand-logo {
+            height: 42px;
+            width: 42px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 2px solid #e2e8f0;
+        }
+        .brand-title {
+            color: #0b192c;
+            font-weight: 700;
+            font-size: 1.15rem;
+        }
+        nav.nav-links {
+            display: flex;
+            gap: 22px;
+            align-items: center;
+        }
+        nav.nav-links a {
+            color: #334155;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav.nav-links a:hover, nav.nav-links a.active {
+            color: #352c5c;
+            font-weight: 600;
+        }
+        /* Hamburger Menu Button (Hidden on Desktop) */
+        .hamburger-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: #22067d;
+        }
+
+        /* Hero Section with Circled Image Frame on Left */
+        .hero-section {
+            background-color: #08582f;
+            padding: 80px 50px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+            border-bottom: 4px solid #051696;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .hero-image-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+        .hero-image-circle {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            border: 5px solid #07188a;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            background: #1e293b;
+        }
+        .hero-image-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hero-text h1 {
+            font-size: 3.1rem;
+            color: #ffffff;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .hero-text p {
+            color: #cbd5e1;
+            font-size: 1.12rem;
+            line-height: 1.6;
+            margin-bottom: 35px;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .btn-green {
+            background-color: #10b981;
+            color: #ffffff;
+            font-weight: 700;
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            transition: background 0.2s;
+            display: inline-block;
+        }
+        .btn-green:hover { background-color: #059669; }
+        .btn-outline {
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            font-weight: 700;
+            padding: 10px 26px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+        .btn-outline:hover { background-color: #ffffff; color: #0b192c; }
+
+        /* Main Container & Footer */
+        .main-content {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            flex: 1;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        footer.site-footer {
+            background: #07111d;
+            border-top: 1px solid #1e293b;
+            padding: 40px;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .footer-nav {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .footer-nav a { color: #94a3b8; text-decoration: none; transition: color 0.2s; }
+        .footer-nav a:hover { color: #10b981; }
+
+        /* Responsive Mobile Styling */
+        @media (max-width: 900px) {
+            .hero-section { grid-template-columns: 1fr; padding: 40px 20px; text-align: center; }
+            .hero-image-wrapper { margin-bottom: 20px; }
+            .hero-image-circle { width: 240px; height: 240px; }
+            .hero-text h1 { font-size: 2.3rem; }
+            .hero-buttons { justify-content: center; }
+            .hamburger-btn { display: block; }
+            nav.nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 72px;
+                left: 0;
+                width: 100%;
+                background: #ffffff;
+                padding: 20px 0;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                border-bottom: 1px solid #e2e8f0;
+            }
+            nav.nav-links.active { display: flex; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Header Navigation with Mobile Hamburger -->
+    <header class="site-header">
+        <a href="index.html" class="brand-container">
+            <img src="assets/images/logo.png" alt="Logo" class="brand-logo" onerror="this.src='https://placehold.co/40/e2e8f0/0b192c?text=C'">
+            <span class="brand-title">Chama</span>
+        </a>
+        <button class="hamburger-btn" onclick="toggleMenu()" aria-label="Toggle Menu">&#9776;</button>
+        <nav class="nav-links" id="navMenu">
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="programs.html">Programs & Tiers</a>
+            <a href="register.html">Get Involved</a>
+            <a href="supervisor.html">Supervisor Portal</a>
+            <!-- Admin link completely hidden from public view -->
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-image-wrapper">
+            <div class="hero-image-circle">
+                <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&w=800&q=80" alt="Community Growth">
+            </div>
+        </div>
+        <div class="hero-text">
+            <h1>Sustainable Growth Through Mutual Support</h1>
+            <p>
+                Chama empowers participants with complete, unrestricted access to all 10 contribution tiers, automatic 10% referral rewards, and secure rotational assistance schedules.
+            </p>
+            <div class="hero-buttons">
+                <a href="register.html" class="btn-green">Get Involved</a>
+                <a href="programs.html" class="btn-outline">Explore Tiers</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Summary -->
+    <div class="main-content">
+        <h2 style="text-align: center; font-size: 2.2rem; margin-bottom: 15px; color: #ffffff;">Platform Pillars & Benefits</h2>
+        <p style="text-align: center; color: #94a3b8; max-width: 650px; margin: 0 auto 40px auto; font-size: 1.05rem;">
+            Designed for total transparency, equitable participation, and leadership advancement.
+        </p>
+
+        <div class="wallet-grid">
+            <div class="wallet-card">
+                <h3 style="color: #10b981;">🌐 Unrestricted Tier Access</h3>
+                <p style="font-size: 0.95rem; color: #94a3b8; font-weight: 400; margin: 0;">Every member can join any participation level from $10 to $2,000 instantly without barriers.</p>
+            </div>
+            <div class="wallet-card">
+                <h3 style="color: #10b981;">🤝 Instant 10% Referrals</h3>
+                <p style="font-size: 0.95rem; color: #94a3b8; font-weight: 400; margin: 0;">Share your unique phone number code and accrue an automatic 10% bonus on every downline contribution.</p>
+            </div>
+            <div class="wallet-card">
+                <h3 style="color: #10b981;">👑 Supervisor Royalties</h3>
+                <p style="font-size: 0.95rem; color: #94a3b8; font-weight: 400; margin: 0;">Reach 5 active downlines to unlock VIP leadership tools and monthly royalty distributions.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p style="margin: 0;">&copy; 2026 Chama Community. All rights reserved.</p>
+            <div class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="programs.html">Programs & Tiers</a>
+                <a href="register.html">Get Involved</a>
+                <a href="supervisor.html">Supervisor Portal</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("navMenu");
+            menu.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

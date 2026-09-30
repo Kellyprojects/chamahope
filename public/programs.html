@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chama - Programs & Participation Tiers</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <style>
+        body { background-color: #0b6e2e; color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
+        header.site-header { background: #ffffff; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .brand-container { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+        .brand-logo { height: 42px; width: 42px; border-radius: 8px; object-fit: cover; border: 2px solid #e2e8f0; }
+        .brand-title { color: #0b192c; font-weight: 700; font-size: 1.15rem; }
+        nav.nav-links { display: flex; gap: 22px; align-items: center; flex-wrap: wrap; }
+        nav.nav-links a { color: #334155; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
+        nav.nav-links a:hover, nav.nav-links a.active { color: #10b981; font-weight: 600; }
+        .main-content { max-width: 1200px; margin: 40px auto; padding: 0 20px; flex: 1; width: 100%; box-sizing: border-box; }
+        footer.site-footer { background: #070f29; border-top: 1px solid #355f48; padding: 40px; color: #94a3b8; font-size: 0.9rem; margin-top: auto; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .footer-nav { display: flex; gap: 24px; flex-wrap: wrap; }
+        .footer-nav a { color: #94a3b8; text-decoration: none; }
+        .footer-nav a:hover { color: #10b981; }
+        .tier-btn { background-color: #10b981; color: #fff; border: none; padding: 10px; width: 100%; border-radius: 6px; font-weight: 600; text-decoration: none; display: block; text-align: center; margin-top: 15px; }
+        .tier-btn:hover { background-color: #059669; }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <a href="index.html" class="brand-container">
+            <img src="assets/images/logo.png" alt="Logo" class="brand-logo" onerror="this.src='https://placehold.co/40/e2e8f0/0b192c?text=C'">
+            <span class="brand-title">Chama</span>
+        </a>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="programs.html" class="active">Programs & Tiers</a>
+            <a href="register.html">Get Involved</a>
+            <a href="supervisor.html">Supervisor Portal</a>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div style="margin-bottom: 35px; text-align: center;">
+            <h2 style="font-size: 2.5rem; color: #ffffff; margin-bottom: 10px;">Complete Participation Tiers ($10 - $2,000)</h2>
+            <p style="color: #94a3b8; font-size: 1.1rem; max-width: 700px; margin: 0 auto;">All 10 levels are fully open and unrestricted. Review return schedules, payout splits, and 10% referral rewards below.</p>
+        </div>
+
+        <!-- 10 Complete Tiers Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+            
+            <div class="wallet-card">
+                <h3>Level 1: Starter</h3>
+                <p style="color: #10b981; font-weight: 600;">$10 Pledge</p>
+                <p style="font-size: 1rem; color: #f8fafc; margin-bottom: 8px;">Return: <strong>$20.00</strong></p>
+                <small style="color: #94a3b8; display: block; margin-bottom: 10px;">Schedule: 4-Week Rotation</small>
+                <small style="color: #10b981; display: block;">Split: W2: $10 | W3: $5 | W4: $5</small>
+                <a href="register.html" class="tier-btn">Join Tier 1</a>
+            </div>
+
+            <div class="wallet-card">
+                <h3>Level 2: Bronze</h3>
+                <p style="color: #10b981; font-weight: 600;">$20 Pledge</p>
+                <p style="font-size: 1rem; color: #f8fafc; margin-bottom: 8px;">Return: <strong>$40.00</strong></p>
+                <small style="color: #94a3b8; display: block; margin-bottom: 10px;">Schedule: 4-Week Rotation</small>
+                <small style="color: #10b981; display: block;">Split: W2: $20 | W3: $10 | W4: $10</small>
+                <a href="register.html" class="tier-btn">Join Tier 2</a>
+            </div>
+
+            <div class="wallet-card">
+                <h3>Level 3: Silver</h3>
+                <p style="color: #10b981; font-weight: 600;">$50 Pledge</p>
+                <p style="font-size: 1rem; color: #f8fafc; margin-bottom: 8px;">Return: <strong>$100.00</strong></p>
+                <small style="color: #94a3b8; display: block; margin-bottom: 10px;">Schedule: 4-Week Rotation</small>
+                <small style="color: #10b981; display: block;">Split: W2: $50 | W3: $25 | W4: $25</small>
+                <a href="register.html" class="tier-btn">Join Tier 3</a>
+            </div>
+
+            <div class="wallet-card">
+                <h3>Level 4: Gold</h3>
+                <p style="color: #10b981; font-weight: 600;">$100 Pledge</p>
+                <p style="font-size: 1rem; color: #f8fafc; margin-bottom: 8px;">Return: <strong>$200.00</strong></p>
+                <small style="color: #94a3b8; display: block; margin-bottom: 10px;">Schedule: 4-Week Rotation</small>
+                <small style="color: #10b981; display: block;">Split: W2: $100 | W3: $50 | W4: $50</small>
+                <a href="register.html" class="tier-btn">Join Tier 4</a>
+            </div>
+
+            <div class="wallet-card">
+                <h3>Level 5: Platinum</h3>
+                <p style="color: #10b981; font-weight: 600;">$200 Pledge</p>
+                <p style="font-size: 1rem; color: #f8fafc; margin-bottom: 8px;">Return: <strong>$400.00</strong></p>
+                <small style="color: #94a3b8; display: block; margin-bottom: 10px;">Schedule: 4-Week Rotation</small>
+                <small style="color: #10b981; display: block;">Split: W2: $200 | W3: $100 | W4: $100</small>
+                <a href="register.html" class="tier-btn">Join Tier 5</a>
+            </div>
+
+            <div class="wallet-card">
+                <h3>Level 6: Ruby</h3>
+                <p style="color: #10b981; font-weight: 600;">$300 Pledge</p>
+                <p style="font-size: 1rem; color: #f8fafc; margin-bottom: 8px;">Return: <strong>$600.00</strong></p>
+                <small style="color: #94a3b8; display: block; margin-bottom: 10px;">Schedule: 4-Week Rotation</small>
+                <small style="color: #10b981; display: block;">Split: W2: $300 | W3: $150 | W4: $150</small>
+                <a href="register.html" class="tier-btn">Join Tier 6</a>
+            </div>
+
+            <div class="wallet-card">
+                <h3>Level 7: Emerald</h3>
+                <p style="color: #10b981; font-weight: 600;">$500 Pledge</p>
+                <p style="font-size: 1rem; color: #f8fafc; margin-bottom: 8px;">Return: <strong>$1,000.00</strong></p>
+                <small style="color: #94a3b8; display: block; margin-bottom: 10px;">Schedule: 4-Week Rotation</small>
+                <small style="color: #10b981; display: block;">Split: W2: $500 | W3: $250 | W4: $250</small>
+                <a href="register.html" class="tier-btn">Join Tier 7</a>
+            </div>
+
+            <div class="wallet-card">
+                <h3>Level 8: Diamond</h3>
+                <p style="color: #10b981; font-weight: 600;">$800 Pledge</p>
+                <p style="font-size: 1rem; color: #f8fafc; margin-bottom: 8px;">Return: <strong>$1,600.00</strong></p>
+                <small style="color: #94a3b8; display: block; margin-bottom: 10px;">Schedule: 4-Week Rotation</small>
+                <small style="color: #10b981; display: block;">Split: W2: $800 | W3: $400 | W4: $400</small>
+                <a href="register.html" class="tier-btn">Join Tier 8</a>
+            </div>
+
+            <div class="wallet-card">
+                <h3>Level 9: Crown</h3>
+                <p style="color: #10b981; font-weight: 600;">$1,000 Pledge</p>
+                <p style="font-size: 1rem; color: #f8fafc; margin-bottom: 8px;">Return: <strong>$2,000.00</strong></p>
+                <small style="color: #94a3b8; display: block; margin-bottom: 10px;">Schedule: 4-Week Rotation</small>
+                <small style="color: #10b981; display: block;">Split: W2: $1000 | W3: $500 | W4: $500</small>
+                <a href="register.html" class="tier-btn">Join Tier 9</a>
+            </div>
+
+            <div class="wallet-card" style="border-color: #10b981; background: linear-gradient(135deg, #1e293b 0%, #064e3b 100%);">
+                <h3>Level 10: Patron VIP</h3>
+                <p style="color: #34d399; font-weight: 600;">$2,000 Pledge</p>
+                <p style="font-size: 1rem; color: #f8fafc; margin-bottom: 8px;">Return: <strong>$4,000.00</strong></p>
+                <small style="color: #cbd5e1; display: block; margin-bottom: 10px;">Schedule: Accelerated VIP</small>
+                <small style="color: #34d399; display: block;">Split: W2: $2000 | W3: $1000 | W4: $1000</small>
+                <a href="register.html" class="tier-btn" style="background-color: #059669;">Join Patron VIP</a>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p style="margin: 0;">&copy; 2026 Chama Community. All rights reserved.</p>
+            <div class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="programs.html">Programs</a>
+                <a href="register.html">Get Involved</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

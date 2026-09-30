@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chama - Member Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body style="background-color: #0f172a; color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh;">
+
+    <!-- Header Navigation -->
+    <header style="background: #1e293b; border-bottom: 1px solid #334155; padding: 15px 30px;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+            <h1 style="font-size: 1.4rem; color: #38bdf8; font-weight: 700; margin: 0;">CHAMA MEMBER PORTAL</h1>
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <span id="user-display-info" style="color: #94a3b8;">Loading user...</span>
+                <a href="supervisor.html" style="color: #38bdf8; text-decoration: none; font-size: 0.9rem;">Supervisor Portal</a>
+                <button class="wallet-btn" style="background-color: #ef4444; padding: 6px 12px; font-size: 0.8rem;" onclick="localStorage.removeItem('chama_user'); window.location.href='index.html';">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Content -->
+    <div style="max-width: 1200px; margin: 30px auto; padding: 0 20px; flex: 1; width: 100%;">
+        
+        <!-- Wallets Grid -->
+        <div class="wallet-grid">
+            <div class="wallet-card">
+                <h3>Pledged Capital Return Wallet</h3>
+                <p id="pledge-balance">$0.00</p>
+                <button class="wallet-btn" onclick="alert('Withdrawals unlock once your weekly schedule matures.')">GET PAID - PLEDGE RETURN</button>
+            </div>
+            <div class="wallet-card">
+                <h3>Referral Bonus Wallet (10%)</h3>
+                <p id="referral-balance">$0.00</p>
+                <button class="wallet-btn" onclick="alert('Referral bonuses accrue instantly upon downline contribution confirmation.')">GET PAID - REFERRAL BONUS</button>
+            </div>
+            <div class="wallet-card">
+                <h3>Supervisor Monthly Bonus Wallet</h3>
+                <p id="supervisor-balance">$0.00</p>
+                <button class="wallet-btn" onclick="alert('Supervisor status (5+ downlines) required for monthly royalty withdrawals.')">GET PAID - SUPERVISOR BONUS</button>
+            </div>
+        </div>
+
+        <!-- Task Section injected via tasks.js -->
+        <div id="task-container-wrapper" style="margin-bottom: 30px;"></div>
+
+        <!-- Open Tier Selection Grid -->
+        <div class="tier-section">
+            <h2>Select Participation Tier ($10 - $2,000)</h2>
+            <p style="color: #94a3b8; margin-bottom: 20px;">All tiers are fully open to all members without restrictions. Earn 10% on every referral!</p>
+            <div id="tier-grid"></div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer style="background: #1e293b; border-top: 1px solid #334155; padding: 20px; text-align: center; color: #94a3b8; font-size: 0.85rem; margin-top: 40px;">
+        &copy; 2026 Chama Community Platform. Member Dashboard.
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/tasks.js"></script>
+    <script>
+        const session = JSON.parse(localStorage.getItem("chama_user"));
+        if (!session) {
+            window.location.href = "register.html";
+        } else {
+            document.getElementById("user-display-info").innerHTML = `<strong>${session.fullname}</strong> | Verified`;
+        }
+    </script>
+</body>
+</html>

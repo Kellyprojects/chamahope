@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chama - Master Admin Command Center</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body style="background-color: #0f172a; color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0;">
+
+    <!-- Admin Header -->
+    <header style="background: #1e293b; border-bottom: 1px solid #334155; padding: 15px 30px;">
+        <div style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+            <h1 style="font-size: 1.4rem; color: #ef4444; font-weight: 700; margin: 0;">CHAMA ADMIN COMMAND CENTER</h1>
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <a href="index.html" style="color: #94a3b8; text-decoration: none; font-size: 0.9rem;">Public Home</a>
+                <button class="wallet-btn" id="logout-btn" style="background-color: #ef4444; padding: 6px 12px; font-size: 0.8rem; display: none;" onclick="adminLogout()">Lock Session</button>
+            </div>
+        </div>
+    </header>
+
+    <div style="max-width: 1400px; margin: 40px auto; padding: 0 20px;">
+        
+        <!-- Passcode Login Gate -->
+        <div id="admin-login-card" class="card" style="max-width: 450px; margin: 80px auto; text-align: center;">
+            <h2 style="color: #f8fafc; margin-bottom: 10px;">Restricted Access</h2>
+            <p style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 25px;">Enter the secure master administration passcode to unlock system surveillance and tier controls.</p>
+            <form id="admin-login-form">
+                <input type="password" id="admin-passcode-input" placeholder="Enter Admin Passcode" required style="width: 100%; margin-bottom: 15px;">
+                <button type="submit" class="wallet-btn" style="width: 100%; background-color: #ef4444;">Authenticate & Open Panel</button>
+            </form>
+        </div>
+
+        <!-- Master Dashboard View (Hidden until authenticated) -->
+        <div id="admin-dashboard-card" style="display: none;">
+            
+            <!-- Overview Metrics -->
+            <div class="wallet-grid" style="margin-bottom: 30px;">
+                <div class="wallet-card">
+                    <h3>Total Registered Members</h3>
+                    <p id="stat-total-users">0</p>
+                    <button class="wallet-btn" onclick="fetchAdminData()">Refresh Directory</button>
+                </div>
+                <div class="wallet-card">
+                    <h3>Active VIP Supervisors</h3>
+                    <p id="stat-total-supervisors" style="color: #38bdf8;">0</p>
+                    <button class="wallet-btn" style="background-color: #38bdf8;">Audit Leaders</button>
+                </div>
+                <div class="wallet-card">
+                    <h3>System Surveillance Status</h3>
+                    <p style="color: #10b981; font-size: 1.5rem; font-weight: 700;">SECURE</p>
+                    <button class="wallet-btn" style="background-color: #10b981;">Database Live</button>
+                </div>
+            </div>
+
+            <!-- Member Directory Table -->
+            <div class="card" style="margin-bottom: 30px;">
+                <h2 style="margin-bottom: 15px;">Member Directory & Tier Overrides</h2>
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid #334155; color: #94a3b8; font-size: 0.9rem;">
+                                <th style="padding: 12px;">Full Name</th>
+                                <th style="padding: 12px;">Phone (ID)</th>
+                                <th style="padding: 12px;">Tier Level Override</th>
+                                <th style="padding: 12px;">Downlines Count</th>
+                                <th style="padding: 12px;">Supervisor Status</th>
+                                <th style="padding: 12px;">Administrative Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-users-table-body">
+                            <!-- Populated dynamically via admin.js -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

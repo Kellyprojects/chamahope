@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chama - VIP Supervisor Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body style="background-color: #0f172a; color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0;">
+
+    <header style="background: #1e293b; border-bottom: 1px solid #334155; padding: 15px 30px;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+            <h1 style="font-size: 1.4rem; color: #38bdf8; font-weight: 700; margin: 0;">VIP SUPERVISOR PORTAL</h1>
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <span id="sup-user-info" style="color: #94a3b8;">Authenticating session...</span>
+                <a href="dashboard.html" style="color: #38bdf8; text-decoration: none; font-size: 0.9rem;">Member Dashboard</a>
+            </div>
+        </div>
+    </header>
+
+    <div style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
+        
+        <!-- Supervisor Hero Card -->
+        <section class="card" style="margin-bottom: 30px; background: linear-gradient(135deg, #1e293b 0%, #064e3b 100%); border: 1px solid #059669;">
+            <h2 style="color: #34d399; margin-bottom: 10px;">Leadership & Royalty Hub</h2>
+            <p style="color: #94a3b8; font-size: 1rem; margin-bottom: 20px;">
+                Supervisors manage community support structures, monitor dispute resolutions, and receive monthly royalty payouts disbursed on the 30th of every calendar month.
+            </p>
+            <div class="wallet-card" style="background-color: rgba(15, 23, 42, 0.6); max-width: 400px;">
+                <h3>Supervisor Monthly Royalty Wallet</h3>
+                <p id="sup-bonus-display">$0.00</p>
+                <button class="wallet-btn" style="background-color: #10b981;" onclick="alert('Royalty distribution scheduled for end of month.')">WITHDRAW SUPERVISOR BONUS</button>
+            </div>
+        </section>
+
+        <!-- Downline Network Tracker -->
+        <section class="card">
+            <h2 style="margin-bottom: 15px;">Your Downline Network (Referral Tree)</h2>
+            <p style="color: #94a3b8; margin-bottom: 20px; font-size: 0.95rem;">Track the real-time activity, phone numbers, and active tier levels of participants registered under your phone number code.</p>
+            
+            <div id="downlines-list">
+                <p style="color: #94a3b8;">Loading network downlines...</p>
+            </div>
+        </section>
+
+    </div>
+
+    <footer style="background: #1e293b; border-top: 1px solid #334155; padding: 25px; text-align: center; color: #94a3b8; font-size: 0.9rem; margin-top: 60px;">
+        &copy; 2026 Chama Community Platform. Supervisor Leadership Network.
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const session = JSON.parse(localStorage.getItem("chama_user"));
+            if (!session || !session.phone) {
+                alert("Please log in as a member first to access the supervisor portal.");
+                window.location.href = "register.html";
+                return;
+            }
+
+            document.getElementById("sup-user-info").innerText = `Leader: ${session.fullname}`;
+
+            try {
+                const resUser = await fetch(`http://localhost:5000/api/users/${session.phone}`);
+                const userData = await resUser.json();
+                
+                if (userData.user) {
+                    document.getElementById("sup-bonus-display").innerText = `$${userData.user.supervisorBalance || 0}.00`;
+                }
+
+                const resDownlines = await fetch(`http://localhost:5000/api/admin/downlines/${session.phone}`);
+                const downData = await resDownlines.json();
+                const container = document.getElementById("downlines-list");
+
+                if (downData.downlines && downData.downlines.length > 0) {
+                    container.innerHTML = downData.downlines.map(d => `
+                        <div style="background: #0f172a; border: 1px solid #334155; padding: 15px; border-radius: 8px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <strong style="color: #f8fafc; font-size: 1.05rem;">${d.fullname}</strong>
+                                <span style="color: #94a3b8; display: block; font-size: 0.85rem; margin-top: 3px;">Phone: ${d.phone}</span>
+                            </div>
+                            <span style="background: rgba(59, 130, 246, 0.1); color: #3b82f6; padding: 5px 12px; border-radius: 6px; font-weight: 600; font-size: 0.9rem;">Level ${d.tierLevel} Active</span>
+                        </div>
+                    `).join('');
+                } else {
+                    container.innerHTML = "<p style='color: #94a3b8;'>No downline members found linked to your phone number yet. Share your phone number as a referral code!</p>";
+                }
+            } catch (err) {
+                console.error("Error loading supervisor data:", err);
+            }
+        });
+    </script>
+</body>
+</html>

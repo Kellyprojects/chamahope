@@ -1,0 +1,20 @@
+/* Smooth Transition Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.view {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Interactive focus glow for inputs */
+input[type="text"]:focus {
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4);
+}

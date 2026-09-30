@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chama - About Us</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <style>
+        body { background-color: #085937; color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
+        header.site-header { background: #ffffff; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .brand-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #0c1f3a; font-weight: 700; font-size: 1.1rem; }
+        .brand-logo img { height: 38px; width: 38px; border-radius: 6px; object-fit: cover; border: 2px solid #e2e8f0; }
+        nav.nav-links { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+        nav.nav-links a { color: #1e293b; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        nav.nav-links a:hover, nav.nav-links a.active { color: #2563eb; }
+        .main-container { max-width: 1000px; margin: 50px auto; padding: 0 20px; flex: 1; width: 100%; box-sizing: border-box; }
+        footer.site-footer { background: #07111d; border-top: 1px solid #1e293b; padding: 30px 40px; color: #94a3b8; font-size: 0.9rem; margin-top: auto; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+        .footer-links a { color: #94a3b8; text-decoration: none; }
+        .footer-links a:hover { color: #38bdf8; }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <a href="index.html" class="brand-logo">
+            <img src="assets/images/logo.png" alt="Chama Logo" onerror="this.src='https://placehold.co/40'">
+            <span>Chama Community</span>
+        </a>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About Us</a>
+            <a href="programs.html">Programs & Tiers</a>
+            <a href="register.html">Get Involved</a>
+            <a href="supervisor.html">Supervisor Portal</a>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <div class="card" style="padding: 40px; background: #0f2744; border: 1px solid #1e3a8a;">
+            <h2 style="font-size: 2.5rem; color: #ffffff; margin-bottom: 20px;">About Chama </h2>
+            <p style="color: #cbd5e1; font-size: 1.1rem; line-height: 1.7; margin-bottom: 20px;">
+                Chama is inspired by historical traditions of cooperative communal support, such as Esusu, Ajo, and rotating savings groups. We leverage modern web architecture to bring transparency, speed, and seamless peer-to-peer coordination to members globally.
+            </p>
+            <h3 style="color: #fbbf24; font-size: 1.5rem; margin-top: 30px; margin-bottom: 15px;">Our Core Vision</h3>
+            <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.7;">
+                To build a trusted ecosystem where individuals can pool mutual resources, support community growth, and earn rotational returns while fostering leadership mentorship and financial cooperation.
+            </p>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p style="margin: 0;">&copy; 2026 Chama Community. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="programs.html">Programs & Tiers</a>
+                <a href="register.html">Get Involved</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
